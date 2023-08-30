@@ -46,4 +46,4 @@ SETTINGS index_granularity=8192, ttl_only_drop_parts = 1;
 
 To benchmark the new data types, please use [this branch of the ClickHouse exporter](https://github.com/haanhvu/opentelemetry-collector-contrib).
 
-There's a detailed explaination in the [README of the branch](https://github.com/haanhvu/opentelemetry-collector-contrib/blob/newtypes/exporter/clickhouseexporter/README.md).
+There's a detailed explanation in the [README of the branch](https://github.com/haanhvu/opentelemetry-collector-contrib/blob/newtypes/exporter/clickhouseexporter/README.md).
