@@ -1,4 +1,4 @@
-The config, hardware, and Docker command are the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
+The config and Docker command are the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
 
 ## New ORDER BY
 
@@ -42,8 +42,12 @@ ORDER BY (ServiceName, SpanName, toUnixTimestamp(Timestamp), Duration, SpanAttri
 SETTINGS index_granularity=8192, ttl_only_drop_parts = 1;
 ```
 
+The hardware is the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
+
 ## New data types
 
 To benchmark the new data types, please use [this branch of the ClickHouse exporter](https://github.com/haanhvu/opentelemetry-collector-contrib).
 
 There's a detailed explanation in the [README of the branch](https://github.com/haanhvu/opentelemetry-collector-contrib/blob/newtypes/exporter/clickhouseexporter/README.md).
+
+Hardware: [n3.xlarge.x86](n3.xlarge.x86) (We need bigger hardware to build collector from source)
