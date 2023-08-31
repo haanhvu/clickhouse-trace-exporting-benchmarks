@@ -3,7 +3,7 @@ The config is the same as [step1-originalschema](https://github.com/haanhvu/jaeg
 
 ## New ORDER BY
 
-Hardware: [n3.xlarge.x86](https://deploy.equinix.com/product/servers/n3-xlarge/)
+Hardware: [m3.small.x86](https://deploy.equinix.com/product/servers/m3-small/)
 
 To benchmark the new `ORDER BY`, we need to manually create the table with the new `ORDER BY` in ClickHouse server before setting up collector-tracegen pipeline:
 ```
