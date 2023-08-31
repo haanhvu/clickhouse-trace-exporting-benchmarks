@@ -1,6 +1,9 @@
-The config and Docker command are the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
+The config is the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
+
 
 ## New ORDER BY
+
+Hardware: [n3.xlarge.x86](https://deploy.equinix.com/product/servers/n3-xlarge/)
 
 To benchmark the new `ORDER BY`, we need to manually create the table with the new `ORDER BY` in ClickHouse server before setting up collector-tracegen pipeline:
 ```
@@ -42,7 +45,8 @@ ORDER BY (ServiceName, SpanName, toUnixTimestamp(Timestamp), Duration, SpanAttri
 SETTINGS index_granularity=8192, ttl_only_drop_parts = 1;
 ```
 
-The hardware is the same as [step1-originalschema](https://github.com/haanhvu/jaeger-clickhouse-benchmark/tree/main/setup/opentelemetry-collector/step1-originalschema).
+Docker command: `docker run --network host --name otel -p 147.28.187.86:4317:4317 -p 147.28.187.86:8888:8888 -v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml otel/opentelemetry-collector-contrib`
+
 
 ## New data types
 
