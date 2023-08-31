@@ -1,0 +1,11 @@
+SELECT
+    name,
+    type,
+    compression_codec,
+    formatReadableSize(sum(data_uncompressed_bytes)) AS uncompressed_size,
+    formatReadableSize(sum(data_compressed_bytes)) AS compressed_size,
+    round(sum(data_uncompressed_bytes) / sum(data_compressed_bytes), 2) AS compression_ratio
+FROM system.columns
+WHERE table = 'jaeger_spans_local'
+GROUP BY name, type, compression_codec
+ORDER BY sum(data_compressed_bytes) DESC
