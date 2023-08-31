@@ -1,0 +1,7 @@
+SELECT
+    formatReadableSize(sum(bytes_on_disk)) AS total_size_on_disk,
+    formatReadableSize(sum(data_uncompressed_bytes)) AS total_data_uncompressed_size,
+    formatReadableSize(sum(data_compressed_bytes)) AS total_data_compressed_size,
+    round(sum(data_uncompressed_bytes) / sum(data_compressed_bytes), 3) AS compression_ratio
+FROM system.parts
+WHERE database = 'default' AND table = 'otel_traces'
