@@ -1,0 +1,14 @@
+SELECT
+    query,
+    event_time,
+    query_duration_ms,
+    read_rows,
+    formatReadableSize(read_bytes) AS read_bytes,
+    result_rows,
+    formatReadableSize(result_bytes) AS result_bytes,
+    formatReadableSize(memory_usage) AS memory_usage
+FROM system.query_log
+WHERE startsWith(query, 'SELECT DISTINCT ServiceName
+FROM otel_traces')
+    AND query_duration_ms != 0
+ORDER BY event_time
