@@ -1,0 +1,20 @@
+SELECT
+    query,
+    event_time,
+    query_duration_ms,
+    read_rows,
+    formatReadableSize(read_bytes) AS read_bytes,
+    result_rows,
+    formatReadableSize(result_bytes) AS result_bytes,
+    formatReadableSize(memory_usage) AS memory_usage
+FROM system.query_log
+WHERE startsWith(query, 'SELECT
+    model
+FROM jaeger_spans_local
+WHERE traceID IN
+    (SELECT
+        traceID
+    FROM jaeger_index_local
+    WHERE durationUs > 1 AND durationUs < 94436)')
+    AND query_duration_ms != 0
+ORDER BY event_time
