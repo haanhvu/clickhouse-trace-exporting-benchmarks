@@ -8,7 +8,7 @@ SELECT
     formatReadableSize(result_bytes) AS result_bytes,
     formatReadableSize(memory_usage) AS memory_usage
 FROM system.query_log
-WHERE startsWith(query, 'SELECT DISTINCT service
+WHERE startsWith(query, 'SELECT DISTINCT operation
 FROM jaeger_operations_local')
     AND query_duration_ms != 0
 ORDER BY event_time
