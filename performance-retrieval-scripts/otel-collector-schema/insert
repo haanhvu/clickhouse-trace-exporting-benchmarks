@@ -1,5 +1,5 @@
 SELECT
-    round(AVG(query_duration_ms)/AVG(written_rows), 3) AS query_duration_per_row_ms,
+    round(AVG(query_duration_ms)/AVG(written_rows), 3) AS insert_duration_per_row_ms,
     formatReadableSize(AVG(memory_usage)/AVG(written_rows)) AS memory_usage_per_row
 FROM system.query_log
 WHERE startsWith(query, 'INSERT INTO otel_traces') AND written_rows != 0
