@@ -50,4 +50,4 @@ To benchmark the new data types, please use [this branch of the ClickHouse expor
 
 There's a detailed explanation in the [README of the branch](https://github.com/haanhvu/opentelemetry-collector-contrib/blob/newtypes/exporter/clickhouseexporter/README.md).
 
-Hardware: [n3.xlarge.x86](n3.xlarge.x86) (We need bigger hardware to build collector from source)
+Hardware: [n3.xlarge.x86](https://deploy.equinix.com/product/servers/n3-xlarge/) (We need bigger hardware to build collector from source)
