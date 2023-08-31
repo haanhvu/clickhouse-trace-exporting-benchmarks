@@ -1,0 +1,20 @@
+SELECT
+    query,
+    event_time,
+    query_duration_ms,
+    read_rows,
+    formatReadableSize(read_bytes) AS read_bytes,
+    result_rows,
+    formatReadableSize(result_bytes) AS result_bytes,
+    formatReadableSize(memory_usage) AS memory_usage
+FROM system.query_log
+WHERE startsWith(query, 'SELECT *
+FROM otel_traces
+WHERE 
+    ServiceName = \'tracegen-00\'
+    AND SpanName = \'child-span-00\'
+    AND Duration > 1846 AND Duration < 5160696
+    AND SpanAttributes[\'attr_00\'] = \'val_00\'
+    AND Timestamp > \'2023-08-10 08:00:02.415166048\' AND Timestamp < \'2023-08-10 09:16:28.998186527\'')
+    AND query_duration_ms != 0
+ORDER BY event_time
