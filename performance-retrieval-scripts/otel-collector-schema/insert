@@ -1,5 +1,5 @@
 SELECT
-    round(SUM(written_rows)/SUM(query_duration_ms)*1000, 3) AS inserted_rows_per_sec,
+    round(SUM(written_rows)/SUM(query_duration_ms)*1000, 0) AS inserted_rows_per_sec,
     formatReadableSize(SUM(memory_usage)/SUM(written_rows)) AS memory_usage_per_row
 FROM system.query_log
 WHERE startsWith(query, 'INSERT INTO otel_traces') AND written_rows != 0
