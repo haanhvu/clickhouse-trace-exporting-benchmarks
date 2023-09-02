@@ -1,0 +1,5 @@
+SELECT
+    round(495000000/SUM(query_duration_ms)*1000, 0) AS inserted_spans_per_sec_single_thread,
+    formatReadableSize(SUM(memory_usage)/495000000) AS memory_usage_per_span_insert
+FROM system.query_log
+WHERE startsWith(query, 'INSERT INTO otel_traces')
