@@ -10,6 +10,16 @@ SELECT
 FROM system.query_log
 WHERE startsWith(query, 'SELECT *
 FROM otel_traces
-WHERE TraceId = \'379443c4d167cc001545cb5da68df2d9\'')
+WHERE TraceId = \'379443c4d167cc001545cb5da68df2d9\'
+    AND Timestamp >=
+        (SELECT
+            Start
+        FROM otel_traces_trace_id_ts
+        WHERE TraceId = \'379443c4d167cc001545cb5da68df2d9\')
+    AND Timestamp <=
+        (SELECT
+            End
+        FROM otel_traces_trace_id_ts
+        WHERE TraceId = \'379443c4d167cc001545cb5da68df2d9\')')
     AND query_duration_ms != 0
 ORDER BY event_time
