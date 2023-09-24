@@ -1,1 +1,1 @@
-For detailed explanation and results of the benchmarks, please visit this [blog](https://docs.google.com/document/d/1sRbfGF5s6bvxgLf6zdX9AaAOaofzB7FTrYUW7Jzdnqw/edit?pli=1).
+For detailed explanation and results of the benchmarks, please visit this [blog](https://medium.com/jaegertracing/making-design-decisions-for-clickhouse-as-a-core-storage-backend-in-jaeger-62bf90a979d).
